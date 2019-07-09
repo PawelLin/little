@@ -2,6 +2,10 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const path = require('path')
+const resolve = dir => {
+    return path.join(__dirname, dir)
+}
 
 module.exports = {
     mode: 'development',
@@ -9,13 +13,32 @@ module.exports = {
         css: './src/pages/css/main.js',
         vue: './src/pages/vue/main.js'
     },
+    resolve: {
+        alias: {
+            '@': resolve('../src')
+        }
+    },
     module: {
         rules: [
-            // ... 其它规则
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
-            }
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'less-loader'
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader'
+                ]
+            },
         ]
     },
     devtool: 'inline-source-map',

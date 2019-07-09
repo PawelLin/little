@@ -7,15 +7,15 @@ export default new Router({
     mode: 'history',
     // base: process.env.BASE_URL,
     routes: [
-        {
-            path: '/css',
-            component: () => import('../App.vue')
-        },
-        {
-            path: '/vue',
-            beforeEnter () {
-                window.location = 'vue.html'
-            }
-        }
+        // {
+        //     path: '/css',
+        //     component: () => import('../App.vue')
+        // },
+        // {
+        //     path: '/vue',
+        //     beforeEnter () {
+        //         window.location = 'vue.html'
+        //     }
+        // }
     ]
 })

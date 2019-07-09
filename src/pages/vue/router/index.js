@@ -4,12 +4,13 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'history',
-    // base: process.env.BASE_URL,
+    // mode: 'history',
+    // base: 'vue.html',
     routes: [
         {
-            path: '/vue',
-            component: () => import('../App.vue')
+            path: '/components',
+            name: 'vue-components',
+            component: () => import('../views/components.vue')
         },
         {
             path: '/css',
